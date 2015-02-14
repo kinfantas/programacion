@@ -1,0 +1,16 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+
+using namespace std;
+
+
+int main()
+{
+	cout<<"Hola Mundo \n"; 
+	cout<<"Soy Karem Infantas";
+	getch();
+	return 0;
+}
+

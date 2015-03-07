@@ -1,0 +1,28 @@
+#include <iostream>
+#include "conio.h"
+using namespace std;
+int main(){
+int a;
+int b;
+int c;
+int d;
+int e;
+float f;
+int g;
+cout <<"ingrese el primer numero"<< endl;
+cin >> a;
+cout <<"ingrese el segundo numer"<< endl;
+cin >> b;
+c = a+b;
+d = a-b;
+e = a*b;
+f = a/b;
+g = a%b;
+cout <<"la suma; " << c << endl;
+cout <<"la resta es; " << d << endl;
+cout <<"la multiplicaciobn es; " << e << endl;
+cout <<"la division es; " << f << endl;
+cout <<"el rsiduo es; " << g << endl;
+getch();
+return 0;
+}

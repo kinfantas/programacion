@@ -1,0 +1,34 @@
+
+// Este es un ejemplo de validar valores posibles de acuerdo a un rango
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+int main() {
+float a;
+float b;
+float c;
+float p;
+cout << "Ingrese el primer valor:" << endl;
+cin >> a;
+cout << "Ingrese el segundo valor:" << endl;
+cin >> b;
+cout << "Ingrese el tercer valor:" << endl;
+cin >> c;
+if (a>0 && a<=10) {
+if (b>0 && b<=10) {
+if (c>0 && c<=10) {
+p = (a+b+c)/3;
+cout << "El promedio total es:" << p << endl;
+} else {
+cout << "Valor errado de:" << c << endl;
+}
+} else {
+cout << "Valor errado de:" << c << endl;
+}
+} else {
+cout << "Valor errado de:" << a << endl;
+}
+return 0;
+}

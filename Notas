@@ -1,0 +1,37 @@
+// notafinal.cpp : Defines the entry point for the console application.
+// Ejemplo de ciclo repetitivo con contador 
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main(){
+
+float n,i,a,b,c,d,e,f,g,h,nf;
+
+i=0;  // contador 
+cout << "Ingrese la catidad de notas que quiere calcular: ";
+cin >> n;
+
+do {
+  cout << "Ingrese la nota del primer parcial: ";
+  cin >> a;
+  cout << "Ingrese la nota del segundo parcial: ";
+  cin >> b;
+  cout << "Ingrese la nota del tercer parcial: ";
+  cin >> c;
+  cout << "Ingrese la nota de practicos: ";
+  cin >> d;
+  cout << "Ingrese la nota del examen final: ";
+  cin >> e;
+  f=((a+b+c)/3)*0.4;
+  g=(d*0.2);
+  h=(e*0.4);
+  nf=(f+g+h);
+  cout << "La nota final es: "<< nf << endl;
+  i++;  // Incremento del contador
+} while (i<n);
+getch();
+}

@@ -1,0 +1,24 @@
+//Sueldo Neto
+#include"stdafx.h"
+#include<iostream>
+#include"conio.h"
+
+using namespace std;
+
+void main() {
+   int a, b, c, h;
+   float sueldo;
+   float i;
+   cout << "Ingrese el numero de empleados: " << endl;
+   cin >> a;
+   for (h=1;h<=a;h++) {
+     cout << "Ingrese las horas trabajadas: " << endl;
+     cin >> b;
+     cout << "Ingrese el pago por hora: " << endl;
+     cin >> c;
+     i = 0.13;
+     sueldo = (c*b)-((c*b)*i);
+     cout << "El sueldo es: " << sueldo << endl;
+   }
+   getch();
+}

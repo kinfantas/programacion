@@ -1,0 +1,35 @@
+// calcular nota final upsa.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+
+
+
+void main()
+{ 
+	int i,id,n,np,ef,p1,p2,p3;
+	float nf;
+	cout<< " Introduzca la cantidad de alumnos: " ;
+	cin>> n;
+	for(i=1;i<=n;i++)
+	{
+		cout<< " ID: ";
+	    cin>> id;
+		cout<< " Introduzca la nota practica: " ;
+	    cin>> np;
+		cout<< " Introduzca la nota de los tres parciales: " ;
+	    cin>> p1;
+		cin>> p2;
+		cin>> p3;
+		cout<< " Introduzca la nota del examen final: ";
+	    cin>> ef;
+		nf=np*0.2+((p1+p2+p3)/3)*0.4+ef*0.4;
+		cout<< " La nota final es: "<< nf;
+	}
+	getch();
+}
+

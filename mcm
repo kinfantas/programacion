@@ -1,0 +1,44 @@
+// dosnumerosdivisibles.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main()
+{int a,b,x,z,y=1,i=2;
+	cout<<"por favor ingrese dos numeros: ";
+	cin>>a;
+	cin>>b;
+		if(a<b)
+		{
+			x=a;
+			z=b;
+		}
+		else 
+		{
+			x=b;
+			z=a;
+		}
+	do{
+		if(x%i==0)
+		
+			{if(z%i==0)
+			{y=y*i;
+			x=x/i;
+			z=z/i;
+				}
+		     else
+		     i++;
+		     }
+		else
+		{i++;}
+	}
+	while(i<=x);
+	y=y*z*x;
+	cout<<"el MCM es: "<<y;
+	getch();
+}
+

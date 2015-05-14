@@ -1,0 +1,125 @@
+// aplicaciones.cpp : Defines the entry point for the console application.
+//
+
+// ecuacioncuadratica.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+#include "stdlib.h"
+
+using namespace std;
+
+
+void cuadratica();
+float determinante (float a, float b, float c);
+void reales (float a, float b, float d, float &x1, float &x2);
+void imaginarias (float a, float b,float d,float &x1, float &x2);
+float unica (float a, float b);
+void sistema ();
+void ecuacion(float a, float b, float c, float d, float e, float f, float &x, float &y);
+
+void main(){
+	int opcion;
+	do {
+		cout <<endl<<"\tMenu"<<endl;
+		cout<< "1. ecuacion cuadratica"<<endl;
+		cout<< "2. sistema de ecuaciones"<<endl;
+		cout<< "0. salir"<<endl;
+		cin>> opcion;
+		switch (opcion) {
+			case 1: cuadratica();
+			        break;
+			case 2: sistema();
+			        break;
+			case 0: cout<<"salir";
+			        break;
+		    default: cout<<"Opcion invalida";
+	    }
+		system("cls");
+	}while (opcion!=0);
+	getch();
+}
+	
+void cuadratica()
+{	
+	float a,b,c,d,x,b1,b2;
+	cout << "Ingrese el valor de a: ";
+	cin >> a;
+	cout << "Igrese el valor de b: ";
+	cin >> b;
+	cout << "Ingrese el valor de c: ";
+	cin >> c;
+	d=determinante(a,b,c);
+	if (d>0){
+		reales(a,b,d,b1,b2); // Las variables no tienen que tener el mismo identificador que en las funciones es posicional, no se coloca &
+		cout << "Solucion 1: " << b1;
+		cout << "\nSolucion 2: " << b2;
+	}
+	else
+		if (d=0){
+			x=unica(a,b);
+			cout << "Solucion unica: " << x;
+		}
+		else {
+			imaginarias(a,b,d,b1,b2);
+			cout << "Solucion 1: " <<b1<< " + " << b2<< "i";
+			cout << "\nSolucion 2: " <<b1<< " - " << b2<< "i";
+		}
+		getch();
+}
+
+float determinante (float a, float b, float c)
+{
+	float aux;
+	aux=pow(b,2)-4*a*c;
+	return aux;
+}
+
+void reales (float a, float b,float d,float &x1,float &x2)
+{
+	x1=(-b+sqrt(d))/(2*a);
+	x2=(-b-sqrt(d))/(2*a);
+}
+
+void imaginarias (float a, float b, float d,float &x1,float &x2)
+{
+	x1=-b/(2*a);	//real
+	x2=sqrt(-d)/(2*a); //imaginaria
+}
+
+float unica (float a, float b)
+{
+	float x;
+	x=-b/(2*a);
+	return x;
+}
+
+void sistema()
+{
+	float a, b, c, d, e, f, m, n;
+	cout<<"Ingrese A: ";
+	cin>>a;
+	cout<<"Ingrese B: ";
+	cin>>b;
+	cout<<"Ingrese C: ";
+	cin>>c;
+	cout<<"Ingrese D: ";
+	cin>>d;
+	cout<<"Ingrese E: ";
+	cin>>e;
+	cout<<"Ingrese F: ";
+	cin>>f;
+	ecuacion(a, b, c, d, e, f, m, n);
+	cout<<"\nEl resultado x = "<<m;
+	cout<<"\nEl resultado y = "<<n;
+	getch();
+}
+
+void ecuacion(float a, float b, float c, float d, float e, float f, float &x, float &y)
+{
+	y = (a*f - c*d)/(b*d -a*e);
+	x = (-c - b*y)/a;
+}

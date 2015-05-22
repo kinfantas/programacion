@@ -1,0 +1,36 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+float mcd(int a, int b);
+void main()
+{int m,a,b;
+cout<<"Ingrese a, respectivamente b: "<<endl;
+cin>>a>>b;
+m=mcd(a,b);
+cout<<"el resultado es: "<<m;
+getch();
+}
+float mcd(int a, int b)
+{int m,n,c=2,s=1;
+if(a<b)
+{
+n=a;
+m=b;
+}
+else {
+n=b;
+m=a;
+}
+do{
+if(n%c==0 && m%c==0)
+{
+s=s*c;
+m=m/c;
+n=n/c;
+}
+else{c++;}
+}
+while(c<=n);
+return s;

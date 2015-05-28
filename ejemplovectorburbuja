@@ -1,0 +1,60 @@
+// 14 del practico vectores.cpp : Defines the entry point for the console application.
+//
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+
+void cargar(int vec[],int tam);
+void ordenar(int vec[],int tam);
+void mostrar(int vec[],int tam);
+
+
+void main()
+{
+	int n, vec[MAX];
+	cout<< "Ingrese el numero de elementos del vector: ";
+	cin>> n;
+	cargar(vec,n);
+	ordenar(vec,n);
+	mostrar(vec,n);
+	getch();
+}
+
+
+void cargar(int vec[],int tam)
+{
+	for(int i=0;i<tam;i++)
+	{
+		
+		cout<< "Ingrese el valor para vec["<< i << "]=";
+		cin>> vec[i];
+	}
+}
+void ordenar(int vec[],int tam)
+{
+	int aux,m;
+	for (int i=0;i<tam-1;i++)
+	{
+		for(int j=i+1;j<tam;j++)
+		{
+			if(vec[i]>vec[j]) 
+			{
+				aux=vec[j];
+				vec[j]=vec[i];
+				vec[i]=aux;
+			}
+		}
+	}
+}
+
+void mostrar(int vec[],int tam)
+{   
+	for(int i=0;i<tam;i++)
+	{
+		cout<< "vec["<< i << "]=";
+		cout<< vec[i]<<endl;
+	}
+}

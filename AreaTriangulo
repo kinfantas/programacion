@@ -1,1 +1,21 @@
-fhfhhfhhf
+// Nombre:
+// Autor:
+// Fecha:
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+usign namespace std;
+
+void main()
+{
+   float area,base,altura;
+   cout<<"Ingrese base: ";
+   cin>>base;
+   cout<<"Ingrese altura: ";
+   cin>>altura;
+   area=(base*altura)/2;
+   cout<<"El area es: "<<area;
+   getch();
+}

@@ -1,0 +1,76 @@
+// factorial.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+#include "Math.h"
+
+using namespace std;
+
+float factorial(float f);
+float raiz(float dato);
+float area(float base,float altura);
+
+void main()
+{
+	float b,a,d,f,Fac;
+	int opcion;
+	// Menu
+	do {
+		//Desplegar las opciones
+		cout<<"\t\t Menu \n";
+		cout<<"\t\t ==== \n";
+		cout<<"1. Factorial\n";
+		cout<<"2. Raiz Cuadrada\n";
+		cout<<"3. Area del Triangulo\n";
+		cout<<"0. Salir\n";
+		cout<<"Opcion: ";
+		cin>>opcion;
+		// Condicional multiple
+		switch (opcion)
+		{
+		case 1: cout<<"Ingrese el numero a calcular su factorial:";
+			    cin>> f;
+				Fac=factorial(f);
+				cout<<"El factorial es: "<<Fac;
+				break;
+		case 2: cout<<"Ingrese el numero para calcular la raiz cuadrada:";
+			    cin>> a;
+				cout<<"La raiz es: "<<raiz(a);
+				break;
+		case 3: cout<<"Ingrese la base: ";
+			    cin>> b;
+				cout<<"Ingrese la altura: ";
+				cin>> a;
+				cout<<"El area es: "<<area(b,a);
+				break;
+		case 0: cout<<"Saliendo del Menu";
+			    break;
+		default: cout <<"ERROR de opcion";
+			    break;
+		}
+		getch();
+		system("cls");
+	}while (opcion!=0);
+	getch();
+
+}
+
+float factorial(float f)
+{
+  float acum=1;
+  for (int i=1;i<=f;i++)
+	  acum=acum*i;
+  return acum;
+}
+float raiz(float dato)
+{
+  return sqrt(dato);
+
+}
+float area(float base,float altura)
+{
+	return (base*altura)/2;
+}

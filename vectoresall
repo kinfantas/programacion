@@ -1,0 +1,64 @@
+// vectores.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+
+void cargar (double a[], int tam);
+void mostrar (double a[], int tam);
+double promedio(double a[], int tam);
+void Burbuja(double a[],int tam);
+int BusquedaLineal(double a[],int b,int tam);
+
+void main ()
+{
+	double vec[MAX],prom,k;
+	int tam,n,pos;
+	do
+	{
+		cout<<"Ingrese el numero de elementos del vector: ";
+		cin>>n;
+	}while ((0>=n)||(n>=100));
+	cargar (vec,n);
+	// Busqueda de un elemento en el vector
+	cout<<endl<<"Ingrese el elemento a buscar: ";
+	cin>>k;
+	pos=BusquedaLineal(vec,k,n);
+	if (pos==-1)
+		cout<<"No se encuentra el dato";
+	else
+		cout<<"El elemento esta en la posicion "<<pos;
+	Burbuja (vec,n);
+	mostrar (vec,n);
+	prom=promedio (vec,n);
+	cout<<"el valor del promedio es: "<<prom<<endl;
+	getch();
+}
+
+void cargar (double a[], int tam)
+{
+	for(int i=0;i<tam;i++)
+	{
+		cout<<"a["<<i<<"]= ";
+		cin>> a[i];
+	}
+}
+
+void mostrar (double a[], int tam)
+{
+	cout << endl<<"Vector clasificado ascendentemente"<<endl;
+	for(int i=0;i<tam;i++)
+		cout<<"a["<<i<<"]= "<<a[i]<<endl;
+}
+
+
+double promedio(double a[], int tam)
+{   double p=0;
+	for(int i=0;i<tam;i++)
+		p=p+a[i];
+	return p/tam;
+}

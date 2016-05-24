@@ -8,6 +8,8 @@
 
 using namespace std;
 
+//Prototipos
+
 void cargar (double a[], int tam);
 void mostrar (double a[], int tam);
 double promedio(double a[], int tam);
@@ -16,24 +18,24 @@ int BusquedaLineal(double a[],int b,int tam);
 
 void main ()
 {
-	double vec[MAX],prom,k;
+	double vec[MAX],prom,k;  //Declarando al vector vec que tiene un tamaña MAX
 	int tam,n,pos;
 	do
 	{
 		cout<<"Ingrese el numero de elementos del vector: ";
 		cin>>n;
-	}while ((0>=n)||(n>=100));
-	cargar (vec,n);
+	}while ((0>=n)||(n>MAX));
+	cargar (vec,n); // Llamada a la función el vector solo se coloca el nombre
 	// Busqueda de un elemento en el vector
 	cout<<endl<<"Ingrese el elemento a buscar: ";
 	cin>>k;
-	pos=BusquedaLineal(vec,k,n);
+	pos=BusquedaLineal(vec,k,n); // Llamada a la busqueda lineal
 	if (pos==-1)
 		cout<<"No se encuentra el dato";
 	else
 		cout<<"El elemento esta en la posicion "<<pos;
-	Burbuja (vec,n);
-	mostrar (vec,n);
+	Burbuja (vec,n);  // Llamada a la burbuja
+	mostrar (vec,n);   // Llamada a mostrar
 	prom=promedio (vec,n);
 	cout<<"el valor del promedio es: "<<prom<<endl;
 	getch();
@@ -60,5 +62,5 @@ double promedio(double a[], int tam)
 {   double p=0;
 	for(int i=0;i<tam;i++)
 		p=p+a[i];
-	return p/tam;
+	return p/tam;   // La función devuelve un valor
 }

@@ -1,0 +1,40 @@
+Proceso ganancia
+	mostrar "ingrese monto e bs"
+	leer a;
+	si (a > 20000)
+		a <- a * 0.02;
+		ostar "el 2% de a, es:",a;
+	Sino
+		a <- a * 0.01;
+		mostrar "el 1% de a, es:",a;
+	FinSi
+FinProceso
+
+
+
+
+
+// ganacia.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include<iostream>
+#include"conio.h"
+
+using namespace std,
+void main()
+{ int a,b,p
+   cout<<"ingrese el monto:",
+   cin>> a,
+   if (a>20000)
+    {1*a*2/100}
+   else
+    {b=a*1/100}
+   cout<<"el porcentaje es"
+   cin>> b,
+   p=a+b,
+   cout<<"el monto a pagar es:";
+   cin>>p,
+   getch();
+}
+

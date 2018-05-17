@@ -1,0 +1,103 @@
+// ejemplomatriz.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+
+#define MAX 20
+
+using namespace std;
+
+void mostrarmat(int MAT[MAX][MAX], int m, int n);
+void cargarmat(int MAT[MAX][MAX], int m, int n);
+float promedio (int MAT[MAX][MAX], int m, int n);
+int mayor(int MAT[MAX][MAX], int m, int n);
+
+void main(){
+	int matriz[MAX][MAX],fil,col,may,opc;
+	float prom;
+	do {
+		cout<<"Ingrese el numero de filas: ";
+		cin>> fil;
+	}while ((fil<=0) || (fil>MAX));
+
+	do {
+		cout<<"Ingrese el numero de columnas: ";
+		cin>> col;
+	}while ((col<=0) || (col>MAX));
+	//Menu
+	do {
+		cout<<"\t Menu\n";
+		cout<<"\t ====\n\n";
+		cout<<"(1) Cargar Matriz\n";
+		cout<<"(2) Mostrar Matriz\n";
+		cout<<"(3) Promedio Matriz\n";
+		cout<<"(4) Mayor Matriz\n";
+		cout<<"(0) Salir\n";
+		cout<<"Opcion:";
+		cin>>opc;
+		switch (opc) {
+			case 1: cargarmat(matriz,fil,col);
+					break;
+			case 2: mostrarmat(matriz,fil,col);
+					break;
+			case 3: prom=promedio(matriz,fil,col);
+					cout<<"El valor promedio es: "<<prom;
+					break;
+			case 4: cout<<"El mayor es: "<<mayor(matriz,fil,col);
+					break;
+			case 0: cout<<"Salir\n";
+					break;
+			default: cout<<"Error\n";
+					break;
+		}
+		getch();
+		system("cls"); // Limpie la pantalla y funciona stdlib
+	} while (opc!=0);
+}
+
+void mostrarmat(int MAT[MAX][MAX], int m, int n){
+	for(int i=0;i<m;i++)
+	{
+		for(int j=0;j<n;j++){
+	        cout<<MAT[i][j]<<"\t";
+		}
+		cout<<endl;
+	}
+}
+
+void cargarmat(int MAT[MAX][MAX], int m, int n){
+	for(int i=0;i<m;i++)
+		for(int j=0;j<n;j++){
+			cout<<"MAT["<<i<<"]["<<j<<"]= ";
+	        cin>>MAT[i][j];
+		}			
+}
+
+float promedio (int MAT[MAX][MAX], int m, int n){
+	float prom,s=0;
+	for(int i=0;i<m;i++)
+		for(int j=0;j<n;j++)
+			s=s+MAT[i][j];
+	prom=s/(m*n);
+	return prom;
+}
+
+int mayor(int MAT[MAX][MAX], int m, int n){
+	int may=MAT[0][0];
+	for(int i=0;i<m;i++)
+		for(int j=0;j<n;j++)
+			if(MAT[i][j]>may)
+				may=MAT[i][j];
+	return may;
+}
+
+
+
+
+
+
+
+

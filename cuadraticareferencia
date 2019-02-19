@@ -1,0 +1,74 @@
+// ecuacioncuadratica.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+//Prototipos
+float discriminante(float a, float b, float c);
+float reales(float d, float a, float b, float &x1);
+float unica (float a, float b);
+
+void main()
+{
+	float a, b,c,d,x1,x2;
+	char resp; // repaso char
+	do {
+		do {
+			cout<<"Ingrese a: ";
+			cin>>a;
+		} while (a==0);
+		cout<<"Ingrese b: ";
+		cin>>b;
+		cout<<"Ingrese c: ";
+		cin>>c;
+		d=discriminante(a,b,c); //Llamando a la funcion discriminante
+		if (d==0)
+			cout <<"Solucion unica: "<< unica(a,b); // LLamar y mostrar unica por que devuelve un valor
+		else
+			if (d>0)
+			{
+				cout << "Soluciones reales: \n"; //Los caracteres especiales van dentro de "
+				cout << "Solucion x1: " << reales(d,a,b,x2)<<endl;
+				cout << "Solucion x2: " << x2;
+			}
+			else
+			{
+				cout << "Soluciones imaginarias:"<<endl; //Los caracteres especiales van dentro de "
+				cout << "Solucion x1: " << -b/(2*a) << "+" << sqrt(-d)/(2*a) << "i"<<endl;
+				cout << "Solucion x2: " << -b/(2*a) << "-" << sqrt(-d)/(2*a) << "i";
+			}
+			getch();
+	   cout <<endl<<"Desea continuar (s): ";
+	   cin>> resp;
+	} while (resp=='s');
+}
+
+//Declaracion de funciones
+
+float discriminante(float a, float b, float c)
+{
+	float dis;
+	dis=b*b - 4*a*c;
+	return dis;
+}
+
+float reales(float d, float a, float b, float &x1)  //& variables por referencia , es la misma ubicacion en la memoria RAM
+{
+	float x2;
+	x2= (-b+ sqrt(d))/(2*a);
+	x1= (-b- sqrt(d))/(2*a);			
+	return x2;
+}
+
+float unica (float a, float b)
+{
+	float x;
+	x= -b/(2*a);
+	return x;
+}
+
+

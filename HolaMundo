@@ -13,9 +13,3 @@ void main()
 	cout<<"Soy -colocar nombre-";
 	getch();
 }
-
-
-==========================
-Proceso HolaMundo
-	Escribir "HolaMundo";
-FinProceso

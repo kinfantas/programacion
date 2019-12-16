@@ -1,0 +1,33 @@
+/ Parcialstring.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string> //Colocar la libreria
+
+using namespace std;
+
+void main()
+{
+	string nombre,var2;   // Se declara un string char nombre[];
+	int longitud;
+	char aux;
+	// Invertir una frase. Segundo Metodo comparar la frase invertida
+	getline(cin,nombre);  // Para pedir cadena de caracteres de teclado
+	var2=nombre;
+	longitud=nombre.length();
+	for (int i=0;i<longitud/2;i++)
+	{  //Intercambio entre elementos del string
+		aux=nombre[i];
+	    nombre[i]=nombre[longitud-1-i];
+		nombre[longitud-1-i]=aux;
+	}
+	cout <<"La cadena invertida es: "<< nombre<<endl;
+	
+	if (var2.compare(nombre)==0)
+		cout<<"Es un palindromo";
+	else
+		cout<<"No es palindromo";
+	getch();
+}

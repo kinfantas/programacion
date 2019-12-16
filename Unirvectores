@@ -1,0 +1,74 @@
+// ParcialVector.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define MAX 100   //Constante MAX
+
+using namespace std;
+
+//Prototipos
+void cargar(int a[], int tam); // Permite ingresar datos del teclado al vector
+void mostrar(int a[], int tam); // Permite desplegar datos del vector
+void Burbuja(int a[],int tam); // Clasifica el vector ascendentemente
+void Unir(int a[],int n,int b[],int m,int c[],int tam); //Une los dos vectores
+
+void main()
+{
+	int n,m,tam,A[MAX],B[MAX],C[MAX];
+	do {
+		cout<<"Ingresar el numero de elementos de A: ";
+		cin>>n;
+	}while ((n>MAX)|| (n<=0));
+	cargar(A,n);
+	do {
+		cout<<"Ingresar el numero de elementos de B: ";
+		cin>>m;
+	}while ((m>MAX)|| (m<=0));
+	cargar(B,m);
+	tam=n+m;
+	Unir(A,n,B,m,C,tam);
+	Burbuja(C,tam);
+	cout<<"Los datos clasificados en C son: ";
+	mostrar(C,tam);
+	getch();
+}
+
+void cargar(int a[], int tam) // Permite ingresar datos del teclado al vector
+{
+for(int i=0;i<tam;i++)
+	{
+		cout<<"a["<<i<<"]= ";
+		cin>> a[i];
+	}
+}
+
+void mostrar(int a[], int tam)// Permite desplegar datos del vector
+{
+	for(int i=0;i<tam;i++)
+		cout<<"a["<<i<<"]= "<<a[i]<<endl;
+}
+
+void Burbuja(int a[],int tam) // Clasifica el vector ascendentemente
+{
+	int aux;
+	for (int i=0;i<tam-1;i++)
+		for (int j=i+1;j<tam;j++)
+			if (a[i]>a[j])
+			{
+				aux=a[i];
+				a[i]=a[j];
+				a[j]=aux;
+			}
+}
+
+void Unir(int a[],int n,int b[],int m,int c[],int tam) //Une los dos vectores
+{
+	for (int i=0;i<n;i++)
+		c[i]=a[i];
+	for (int i=0;i<m;i++)
+		c[i+n]=b[i]; // Se traspasa en el vector C despues de A por eso n
+}
+
+

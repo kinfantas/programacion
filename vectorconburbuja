@@ -1,0 +1,104 @@
+// Ejemplovector.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+#define MAX 100
+
+using namespace std;
+
+//prototipos
+void cargar(double vec[], int tamanio); // Pedir datos para el vector
+void mostrar(double vec[], int tamanio); //Permite ver todo el vector
+double promedio(double vec[], int tamanio); // Calcula el promedio del vector
+void burbuja(double vec[], int tamanio); // Clasifica el vector
+bool busqueda(double vec[], int tamanio, double elemento); // Buscar un elemento en el vector
+
+int main()
+{
+    // Pide el numero de elementos y valida que no sea mayor a 100
+    double vec[MAX], elem, prom, k;  //Declarando al vector vec que tiene un tamaña MAX
+    int n, opcion;
+    do
+    {
+        cout << "Ingrese el numero de elementos del vector: ";
+        cin >> n;
+    } while ((0 >= n) || (n > MAX));
+    do {
+        cout << endl << "\tMenu" << endl;
+        cout << "1. cargar" << endl;
+        cout << "2. mostrar" << endl;
+        cout << "3. promedio" << endl;
+        cout << "4. busqueda" << endl;
+        cout << "5. clasificar" << endl;
+        cout << "0. salir" << endl;
+        cin >> opcion;
+        switch (opcion) {
+        case 1: cargar(vec, n);
+            break;
+        case 2: mostrar(vec, n);
+            break;
+        case 3: cout << "el promedio del vector es: " << promedio(vec, n);
+            break;
+        case 4:
+            cout << "Ingrese el elemento a buscar: ";
+            cin >> elem;
+            if (busqueda(vec, n, elem))
+                cout << "Elemento encontrado";
+            else
+                cout << "Elemento no existente";
+            break;
+        case 5: burbuja(vec, n);
+            break;
+        case 0: cout << "salir";
+            break;
+        default: cout << "Opcion invalida";
+        }
+    } while (opcion != 0);
+}
+
+void cargar(double vec[], int tamanio) // Pedir datos para el vector
+{
+    for (int i = 0; i < tamanio; i++)
+    {
+        cout << "Ingrese vec[" << i << "]: ";
+        cin >> vec[i];
+    }
+}
+void mostrar(double vec[], int tamanio) //Permite ver todo el vector
+{
+    for (int i = 0; i < tamanio; i++)
+        cout << "Vec[" << i << "]: "<<vec[i];
+}
+double promedio(double vec[], int tamanio)
+// Calcula el promedio del vector
+{
+    double p = 0;
+    for (int i = 0; i < tamanio; i++)
+        p = p + vec[i];
+    return p / tamanio;   // La función devuelve un valor
+}
+void burbuja(double vec[], int tamanio)// Clasifica el vector
+{
+    double aux;
+    for (int i = 0; i < tamanio-1; i++)
+        for (int j = 0; j < tamanio; j++)
+            if (vec[i] > vec[j])
+            {
+                aux = vec[j];
+                vec[j] = vec[i];
+                vec[i] = aux;
+            }
+}
+
+bool busqueda(double vec[], int tamanio, double elemento)
+// Buscar un elemento en el vector
+{
+    bool aux=false;
+    for (int i = 0; i < tamanio; i++)
+        if (elemento == vec[i])
+        {
+            aux = true;
+            return aux;
+        }
+    return aux;   // La función devuelve un valor
+}

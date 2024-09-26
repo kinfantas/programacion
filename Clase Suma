@@ -1,0 +1,52 @@
+//Creacion de Clase
+
+#pragma once
+class Suma
+{	private:
+	int A;
+	int B;
+	public:
+	Suma(void);
+	~Suma(void);
+	int calcular_suma(int a,int b);
+};
+
+//Creando Programa Principal
+
+#include "Stdafx.h"
+#include "Suma.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+void main ()
+{	Suma suma1;
+	int x,y;
+	cout<<"Ingrese su primer numero: "<<endl;
+	cin>>x;
+	cout<<"Ingrese su segundo numero: "<<endl;
+	cin>>y;
+	cout<<"La suma es: "<< suma1.calcular_suma(x,y);
+	getch();
+
+}
+
+//Constructores y Destructores
+
+#include "Stdafx.h"
+#include "Triangulo.h"
+
+
+Suma::Suma(void)
+{
+}
+
+
+Suma::~Suma(void)
+{
+}
+int Suma::calcular_suma(int a,int b)
+{int r;
+ r=a+b;
+ return r;
+}
